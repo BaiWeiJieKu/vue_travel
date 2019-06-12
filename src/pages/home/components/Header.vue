@@ -1,3 +1,4 @@
+<!--头部组件-->
 <template>
 	<div id="" class="header">
 		<div id="" class="header-left">
