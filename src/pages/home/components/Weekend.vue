@@ -4,7 +4,7 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item of weekendList"
+        v-for="item of list"
         :key="item.id"
       >
         <div class="item-img-wrapper">

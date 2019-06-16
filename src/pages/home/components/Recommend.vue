@@ -5,7 +5,7 @@
       <router-link
         tag="li"
         class="item border-bottom"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.id"
         :to="'/detail/' + item.id"
       >

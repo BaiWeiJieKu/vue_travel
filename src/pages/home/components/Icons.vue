@@ -1,7 +1,7 @@
 <!--选项模块-->
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div
           class="icon"
@@ -21,6 +21,9 @@
 <script>
 	export default {
 		name: 'HomeIcons',
+		props:{
+			list:Array
+		},
 		data (){
 			return {
 				iconList:[{
@@ -55,7 +58,11 @@
 					id:'0008',
 					imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/f04285731d7121da1b9028e2bf431695.png',
 					desc:'龙口南山'
-				}]
+				}],
+				swiperOption:{
+					//轮播图不自动滚动
+					autoplay:false
+				}
 			}
 		},
 		//计算属性，判断图标个数需要几个页面显示
@@ -63,7 +70,7 @@
 		    pages () {
 		      const pages = []
 		      //对数据列表进行循环
-		      this.iconList.forEach((item, index) => {
+		      this.list.forEach((item, index) => {
 		      	//判断哪一组数据显示在哪一页中
 		        const page = Math.floor(index / 8)
 		        //如果数组中第page个页面不存在，则在pages[page]位置开辟一个空数组
