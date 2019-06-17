@@ -1,7 +1,7 @@
 /* eslint-disable把首页拆成多个组件 */
 <template>
 	<div>
-		<home-header :city="city"></home-header>
+		<home-header></home-header>
 		<home-swiper :list="swiperList"></home-swiper>
 		<home-icons :list="iconList"></home-icons>
 		<home-recommend :list="recommendList"></home-recommend>
@@ -18,6 +18,7 @@ import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
 //使用axios进行ajax发送
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
@@ -36,9 +37,13 @@ export default {
   		weekendList:[]
   	}
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
   	getHomeInfo() {
-  		axios.get('/api/index.json').then(this.getHomeInfoSucc)
+  		axios.get('/api/index.json?city=' + this.city)
+        .then(this.getHomeInfoSucc)
   	},
   	getHomeInfoSucc(res){
   		res=res.data
@@ -53,8 +58,15 @@ export default {
   		console.log(res)
   	}
   },
-  mounted (){
-  	this.getHomeInfo()
+  mounted () {
+    this.lastCity = this.city
+    this.getHomeInfo()
+  },
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
   }
 }
 //使用ajax获取动态数据

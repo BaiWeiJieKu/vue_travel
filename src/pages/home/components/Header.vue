@@ -19,11 +19,12 @@
 </template>
 
 <script>
+	import { mapState } from 'vuex'
 	//导出头部组件，在home组件中进行引用
 	export default {
 		name: 'HomeHeader',
-		props:{
-			city:String
+		computed: {
+		    ...mapState(['city'])
 		}
 	}
 </script>
