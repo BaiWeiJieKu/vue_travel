@@ -8,10 +8,13 @@
 			<span class="iconfont">&#xe632;</span>
 			输入城市/景点/游玩主题
 		</div>
-		<div id="" class="header-right">
-			{{this.city}}
-			<span class="iconfont arrow-icon">&#xe64a;</span>
-		</div>
+		<!--路由跳转，在router/index.js中，点击城市名称，跳转到city.vue页面-->
+		<router-link to="/city">
+			<div id="" class="header-right">
+				{{this.city}}
+				<span class="iconfont arrow-icon">&#xe64a;</span>
+			</div>
+		</router-link>
 	</div>
 </template>
 
