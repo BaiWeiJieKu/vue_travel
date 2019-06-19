@@ -27,6 +27,7 @@
 <script>
 	//common在build/webpack.base.conf.js的40行使用了别名
 import CommonGallary from 'common/gallary/Gallary'
+//引入渐隐渐现动画效果
 import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
   name: 'DetailBanner',

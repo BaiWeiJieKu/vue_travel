@@ -1,3 +1,4 @@
+<!--画廊渐隐渐现动画效果-->
 <template>
   <transition>
     <slot></slot>
