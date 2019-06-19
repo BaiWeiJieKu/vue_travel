@@ -7,6 +7,8 @@ import fastClick from 'fastclick'
 import './assets/styles/reset.css'
 //引入swiper轮播图插件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+//引入适配手机机型的包
+import 'babel-polyfill'
 import store from './store'
 // require styles
 import 'swiper/dist/css/swiper.css'
